@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once "config.php";
+    include_once "master/php/config.php";
 
     $outgoing_id = $_SESSION['unique_id'];
     $searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
@@ -9,7 +9,7 @@
     $output = "";
     $query = mysqli_query($conn, $sql);
     if(mysqli_num_rows($query) > 0){
-        include_once "data.php";
+        include_once "master/php/data.php";
     }else{
         $output .= 'No user found related to your search term';
     }
