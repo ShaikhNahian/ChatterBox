@@ -1,11 +1,11 @@
 <?php 
   session_start();
   if(isset($_SESSION['unique_id'])){
-    header("location: users.php");
+    header("location: master/users.php");
   }
 ?>
 
-<?php include_once "header.php"; ?>
+<?php include_once "master/header.php"; ?>
 <body>
   <div class="wrapper">
     <section class="form login">
@@ -25,11 +25,11 @@
           <input type="submit" name="submit" value="Continue to Chat">
         </div>
       </form>
-      <div class="link">Not signed up yet? <a href="index.php">Sign up now</a></div>
+      <div class="link">Not signed up yet? <a href="master/index.php">Sign up now</a></div>
     </section>
   </div>
   
-  <script src="javascript/login.js"></script>
+  <script src="master/javascript/login.js"></script>
 
 </body>
 </html>
