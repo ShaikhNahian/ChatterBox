@@ -31,7 +31,7 @@
         }
         echo $output;
     }else{
-        header("location: ../master/login.php");
+        header("location: master/login.php");
     }
 
 ?>
