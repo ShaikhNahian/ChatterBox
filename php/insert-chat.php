@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if(isset($_SESSION['unique_id'])){
-        include_once "config.php";
+        include_once "master/php/config.php";
         $outgoing_id = $_SESSION['unique_id'];
         $incoming_id = mysqli_real_escape_string($conn, $_POST['incoming_id']);
         var_dump($_POST);
@@ -11,7 +11,7 @@
                                         VALUES ({$incoming_id}, {$outgoing_id}, '{$message}')") or die();
         }
     }else{
-        header("location: ../login.php");
+        header("location: master/login.php");
     }
 
 
