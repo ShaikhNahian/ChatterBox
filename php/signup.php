@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once "config.php";
+    include_once "master/php/config.php";
     $fname = mysqli_real_escape_string($conn, $_POST['fname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -26,7 +26,7 @@
                         if(in_array($img_type, $types) === true){
                             $time = time();
                             $new_img_name = $time.$img_name;
-                            if(move_uploaded_file($tmp_name,"images/".$new_img_name)){
+                            if(move_uploaded_file($tmp_name,"master/php/images/".$new_img_name)){
                                 $ran_id = rand(time(), 100000000);
                                 $status = "Active now";
                                 $encrypt_pass = md5($password);
