@@ -1,7 +1,7 @@
 <?php
 session_start();
     if(isset($_SESSION['unique_id'])){
-        include_once "php/config.php";
+        include_once "master/php/config.php";
         $outgoing_id = $_SESSION['unique_id'];
         $incoming_id = mysqli_real_escape_string($conn, $_POST['incoming_id']);
 
@@ -20,14 +20,14 @@ session_start();
                 if(in_array($img_type, $types) === true){
                     $time = time();
                     $new_img_name = $time.$img_name;
-                    if(move_uploaded_file($tmp_name,"uploaded_media/".$new_img_name)){
+                    if(move_uploaded_file($tmp_name,"master/uploaded_media/".$new_img_name)){
                         $ran_id = rand(time(), 100000000);
                         if(!empty($new_img_name)){
                             $sql = mysqli_query($conn, "INSERT INTO messages (incoming_msg_id, outgoing_msg_id, msg)
                                                         VALUES ({$incoming_id}, {$outgoing_id}, '{$new_img_name}')") or die();
                         }
                         else{
-                            header("location: ../login.php");
+                            header("location: ../master/login.php");
                         }
                     }
                 }
