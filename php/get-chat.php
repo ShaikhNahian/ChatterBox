@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if(isset($_SESSION['unique_id'])){
-        include_once "config.php";
+        include_once "master/php/config.php";
         $outgoing_id = $_SESSION['unique_id'];
         $incoming_id = mysqli_real_escape_string($conn, $_POST['incoming_id']);
         $output = "";
@@ -19,7 +19,7 @@
                                 </div>';
                 }else{
                     $output .= '<div class="chat incoming">
-                                <img src="php/images/'.$row['img'].'" alt="">
+                                <img src="master/php/images/'.$row['img'].'" alt="">
                                 <div class="details">
                                     <p>'. $row['msg'] .'</p>
                                 </div>
@@ -31,7 +31,7 @@
         }
         echo $output;
     }else{
-        header("location: ../login.php");
+        header("location: ../master/login.php");
     }
 
 ?>
